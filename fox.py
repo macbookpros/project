@@ -2,7 +2,7 @@ from mpi4py import MPI
 from Config import Config
 import math
 import sys
-
+from decimal import Decimal
 import numpy
 if len(sys.argv)<2:
     print("specify: matrixA matrixB matrixC")
@@ -65,9 +65,9 @@ config.block.Commit()
 
 config.A_file.Set_view(disp=4,etype=MPI.DOUBLE,filetype=config.block,datarep="native",info=MPI.INFO_NULL)
 config.B_file.Set_view(disp=4,etype=MPI.DOUBLE,filetype=config.block,datarep="native",info=MPI.INFO_NULL)
-config.A=numpy.ndarray(int(config.local_dims[0] *config.local_dims[0]*4),dtype=numpy.double)
-config.B=numpy.ndarray(int(config.local_dims[0] *config.local_dims[0]*4),dtype=numpy.double)
-config.C=numpy.ndarray(int(config.local_dims[0] *config.local_dims[0]*4),dtype=numpy.double)
+config.A=numpy.ndarray(int(config.local_dims[0] *config.local_dims[0]*8),dtype=float)
+config.B=numpy.ndarray(int(config.local_dims[0] *config.local_dims[0]*4),dtype=float)
+config.C=numpy.ndarray(int(config.local_dims[0] *config.local_dims[0]*4),dtype=float)
 
 config.A_file.Read_all(config.A)
 config.B_file.Read_all(config.B)
