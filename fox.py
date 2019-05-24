@@ -2,6 +2,7 @@ from mpi4py import MPI
 from Config import Config
 import math
 import sys
+import struct
 from decimal import Decimal
 import numpy
 if len(sys.argv)<2:
@@ -23,10 +24,10 @@ config.WORLD_SIZE=nproc
 
 if config.world_rank == 0:
     ba = bytearray(2)
-    config.A_file.Iread(ba)
-    size=int.from_bytes(ba, byteorder='little', signed=True)
-    config.A_dims=[size,size]
-    config.B_dims = [size,size]
+    config. A_file.Iread(ba)
+    size = struct.unpack('<H',ba)
+    config.A_dims=[size[0],size[0]]
+    config.B_dims = [size[0],size[0]]
 
 config.A_dims=comm.bcast(config.A_dims, root=0)
 config.B_dims=comm.bcast(config.B_dims, root=0)
