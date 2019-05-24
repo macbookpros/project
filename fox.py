@@ -78,10 +78,21 @@ config.B_file.Read_all(config.B)
 
 config.A_file.Close()
 config.B_file.Close()
-if config.world_rank ==0:
-   for i in range(0, int(config.local_dims[0])):
-       for j in range(0, int(config.local_dims[0])):
-           print(config.A[int(i * config.local_dims[0] + j)])
-
-#config.compute_fox()
-
+"""
+for i in range(0, int(config.local_dims[0])):
+   for j in range(0, int(config.local_dims[0])):
+       #config.A[int(i * config.local_dims[0] + j)]=round(config.A[int(i * config.local_dims[0] + j)],8)
+       print("rank %d value %f " %(config.world_rank,config.A[int(i * config.local_dims[0] + j)]))
+print("\n")     
+for i in range(0, int(config.local_dims[0])):
+   for j in range(0, int(config.local_dims[0])):
+       #config.A[int(i * config.local_dims[0] + j)]=round(config.A[int(i * config.local_dims[0] + j)],8)
+       print("rank %d value %f " %(config.world_rank,config.B[int(i * config.local_dims[0] + j)]))
+print("\n")
+"""  
+config.compute_fox()
+#if config.world_rank ==0 :
+for i in range(0, int(config.local_dims[0])):
+   for j in range(0, int(config.local_dims[0])):
+       #config.A[int(i * config.local_dims[0] + j)]=round(config.A[int(i * config.local_dims[0] + j)],8)
+       print("rank %d value %f " %(config.world_rank,config.C[int(i * config.local_dims[0] + j)]))
