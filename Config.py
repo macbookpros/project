@@ -1,4 +1,4 @@
-import numpy
+#import numpy
 from mpi4py import MPI
 from array import array
 class Config:
@@ -10,9 +10,9 @@ class Config:
     col_comm = None
     dim = []
     coords = []
-    A_dims = []
-    B_dims = []
-    C_dims = []
+    A_dims = array('i',[0]*2)
+    B_dims = array('i',[0]*2)
+    C_dims = array('i',[0]*2)
     matrix_size = 0
     local_dims = []
     local_size = 0
