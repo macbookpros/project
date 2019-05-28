@@ -30,7 +30,8 @@ class Config:
 
 
     def compute_fox(self):
-        self.A_tmp=numpy.frombuffer(array('d',[0.0]*int(self.local_dims[0] *self.local_dims[0])))
+        self.A_tmp = numpy.empty(shape=(int(self.local_dims[0]),int(self.local_dims[0])))
+        self.A_tmp.fill(0.0)
       #  self.A_tmp = numpy.ndarray(int(self.local_dims[0] *self.local_dims[0]*8))
         source = (self.my_row + 1) % int(self.dim[0])
         dest = (self.my_row + int(self.dim[0]) - 1) % int(self.dim[0])
@@ -49,23 +50,4 @@ class Config:
 
 
     def multiply_matrix(self, Amatrix):
-        print(Amatrix.size)
-        print self.C.size
-        print "A: "+str(Amatrix.shape)
-        print "B: "+str(self.C.shape)
-        #if self.C==None:
-            #self.C=Amatrix
-        #else:
-        self.C=numpy.matmul(Amatrix,self.C)
-        '''
-
-        for i in range(0, int(self.local_dims[0])):
-            for k in range(0, int(self.local_dims[0])):
-                for j in range(0, int(self.local_dims[0])):
-                    #print("A for rank {}  is {}\n".format(self.world_rank,Amatrix));
-                    #print("B for rank {}  is {}\n".format(self.world_rank,self.B));
-                    #print(self.C[int(i*self.local_dims[0]+j)])
-                    #print(self.B[int(k*self.local_dims[0]+j)])
-                    self.C[int(i*int(self.local_dims[0])+j)] += Amatrix[int(i*int(self.local_dims[0])+k)]*self.B[int(k*int(self.local_dims[0])+j)]
-        '''
-
+          self.C+=numpy.matmul(Amatrix,self.B)

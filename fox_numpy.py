@@ -1,5 +1,5 @@
 from mpi4py import MPI
-from Config import Config
+from Config_numpy import Config
 import math
 import sys
 from array import array
@@ -25,14 +25,6 @@ config.WORLD_SIZE=nproc
 
 
 if config.world_rank == 0:
-    """
-    ba = bytearray(2)
-    config.A_file.Iread(ba)
-    size = struct.unpack('<H',ba)[0]
-    
-    config.A_dims=[size,size]
-    config.B_dims = [size,size]
-    """
     config.A_file.Read(config.A_dims)
     config.B_file.Read(config.B_dims)	
 config.A_dims=comm.bcast(config.A_dims, root=0)
@@ -71,10 +63,15 @@ config.block.Commit()
 #config.C=[0]*config.local_size
 config.A_file.Set_view(disp= MPI.INT.Get_size()*2,filetype=config.block)
 config.B_file.Set_view(disp= MPI.INT.Get_size()*2,filetype=config.block)
-config.A=numpy.frombuffer(array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0])))
-config.B=numpy.frombuffer(array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0])))
-config.C=numpy.frombuffer(array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0])))
-
+#config.A=numpy.frombuffer(array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0])))
+#config.B=numpy.frombuffer(array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0])))
+#config.C=numpy.frombuffer(array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0])))
+config.A = numpy.empty(shape=(int(config.local_dims[0]),int(config.local_dims[0])))
+config.A.fill(0.0)
+config.B = numpy.empty(shape=(int(config.local_dims[0]),int(config.local_dims[0])))
+config.B.fill(0.0)
+config.C = numpy.empty(shape=(int(config.local_dims[0]),int(config.local_dims[0])))
+config.C.fill(0.0)
 
 #config.A=array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0]))
 #config.B=array('d',[0.0]*int(config.local_dims[0] *config.local_dims[0]))
@@ -107,11 +104,3 @@ config.C_file.Set_view(disp= MPI.INT.Get_size()*2,filetype=config.block)
 config.C_file.Write_all(config.C)      
 config.C_file.Close()
 
-
-
-
-
-#if config.world_rank ==0 :
-#for i in range(0, int(config.local_dims[0])):
-  # for j in range(0, int(config.local_dims[0])):
-      # print("rank %d value %lf " %(config.world_rank,config.C[int(i * config.local_dims[0] + j)]))
