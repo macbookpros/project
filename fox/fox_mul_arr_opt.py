@@ -1,5 +1,5 @@
 from mpi4py import MPI
-from Configfileread import Config
+from Configarropt import Config
 import math
 import sys
 from array import array
