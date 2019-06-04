@@ -17,8 +17,7 @@ For running map- <br />
 
 Performance_source folder consists of all the code files for evaluation of basic MPI calls- <br />
 For running - broadcast.py,one-sidedcomm.py,sr_comparision.py,sr_normal.py,sr_numpy.py,user_def_type.py <br /> 
-aprun -n <number_of_processors> python <name_of_python_file>.py
-<size argument> <br />
+aprun -n <number_of_processors> python <name_of_python_file>.py <size_argument> <br />
 For other programs- <br />
 aprun -n <number_of_processors> python <name_of_python_file>.py <br />
 
