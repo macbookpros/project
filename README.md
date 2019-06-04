@@ -1,7 +1,7 @@
 # project
 
 For running python codes on beskow-
-1)Login to beskow &nbsp;
+1)Login to beskow <br />
  2)Allocate required nodes &nbsp;
  Type following commands- &nbsp;
  3)module load anaconda/py27/5.3 &nbsp;
