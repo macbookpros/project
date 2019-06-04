@@ -16,10 +16,10 @@ For running map- <br />
 3)map --profile aprun -n 9 python <name_of_python_file>.py <arguments> <br />
 
 Performance_source folder consists of all the code files for evaluation of basic MPI calls- <br />
-For running - broadcast.py,one-sidedcomm.py,sr_comparision.py,sr_normal.py,sr_numpy.py,user_def_type.py <br />
-aprun -n <number of processors> python <name_of_python_file>.py <size argument> <br />
+For running - broadcast.py,one-sidedcomm.py,sr_comparision.py,sr_normal.py,sr_numpy.py,user_def_type.py <br /> 
+aprun -n <number_of_processors> python <name_of_python_file>.py <size argument> <br />
 For other programs- <br />
-aprun -n <number of processors> python <name_of_python_file>.py <br />
+aprun -n <number_of_processors> python <name_of_python_file>.py <br />
 
 Fox folder consists of source files for fox algorithm- <br />
 For generating matrice elements- <br />
