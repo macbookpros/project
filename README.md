@@ -33,5 +33,5 @@ For verifying- <br />
 
 Map folder consists of all the map files. They can be viewed using the ARM map tool. <br />
 
-Results Folder consists of all the table data .<br />
+Results Folder consists of all the table data .
 
