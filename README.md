@@ -2,13 +2,13 @@
 
 For running python codes on beskow-
 1)Login to beskow &nbsp;
- 2)Allocate required nodes
- Type following commands-
- 3)module load anaconda/py27/5.3
- 4)source activate mpi4py
- 5)export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib
- To run code-
- aprun -n 9 python <name_of_python_file>.py <arguments>
+ 2)Allocate required nodes &nbsp;
+ Type following commands- &nbsp;
+ 3)module load anaconda/py27/5.3 &nbsp;
+ 4)source activate mpi4py &nbsp;
+ 5)export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib &nbsp;
+ To run code- &nbsp;
+ aprun -n 9 python <name_of_python_file>.py <arguments> &nbsp;
 
 For running map-
 1)module load allinea-forge/18.1.1
