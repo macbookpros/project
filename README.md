@@ -11,9 +11,9 @@ For running python codes on beskow-
  aprun -n 9 python <name_of_python_file>.py <arguments> &nbsp;
 
 For running map-
-1)module load allinea-forge/18.1.1
-2)export ALLINEA_SAMPLER_INTERVAL=1
-3)map --profile aprun -n 9 python <name_of_python_file>.py <arguments>
+1)module load allinea-forge/18.1.1 &nbsp;
+2)export ALLINEA_SAMPLER_INTERVAL=1 &nbsp;
+3)map --profile aprun -n 9 python <name_of_python_file>.py <arguments> &nbsp;
 
 Performance_source folder consists of all the code files for evaluation of basic MPI calls-
 For running - broadcast.py,one-sidedcomm.py,sr_comparision.py,sr_normal.py,sr_numpy.py,user_def_type.py
@@ -23,13 +23,13 @@ aprun -n <number of processors> python <name_of_python_file>.py
 
 Fox folder consists of source files for fox algorithm-
 For generating matrice elements-
-1)cc generate.c
-2)aprun ./a.out 576 576 576 A.bin B.bin C.answer 944
-For running -
-aprun -n <number_of_processors> python <name_of_the_file>.py A.bin B.bin C2.answer
-For verifying-
-1)cc verify.c
-2)aprun ./a.out C2.answer C.answer
+1)cc generate.c &nbsp;
+2)aprun ./a.out 576 576 576 A.bin B.bin C.answer 944 &nbsp;
+For running - &nbsp;
+aprun -n <number_of_processors> python <name_of_the_file>.py A.bin B.bin C2.answer &nbsp;
+For verifying- &nbsp;
+1)cc verify.c &nbsp;
+2)aprun ./a.out C2.answer C.answer &nbsp;
 
 Map folder consists of all the map files. They can be viewed using the ARM map tool.
 
