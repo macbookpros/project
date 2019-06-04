@@ -8,12 +8,12 @@ For running python codes on beskow- <br />
  4)source activate mpi4py <br />
  5)export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib <br />
  To run code- <br />
- aprun -n 9 python <name_of_python_file>.py <arguments> <br />
+ aprun -n <number_of_processors>  python <name_of_python_file>.py <arguments> <br />
 
 For running map- <br />
 1)module load allinea-forge/18.1.1 <br />
 2)export ALLINEA_SAMPLER_INTERVAL=1 <br />
-3)map --profile aprun -n 9 python <name_of_python_file>.py <arguments> <br />
+3)map --profile aprun -n <number_of_processors>  python <name_of_python_file>.py <arguments> <br />
 
 Performance_source folder consists of all the code files for evaluation of basic MPI calls- <br />
 For running - broadcast.py,one-sidedcomm.py,sr_comparision.py,sr_normal.py,sr_numpy.py,user_def_type.py <br /> 
